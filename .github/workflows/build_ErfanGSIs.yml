@@ -14,8 +14,8 @@ on:
     types: [started]
     
 env:
-  ROM_URL1: https://cloud189-xizang-person.oos-xzls.ctyunapi.cn/61985045-b6b0-4e95-9fa0-802176d6d053?x-amz-CLIENTTYPEIN=UNKNOWN&AWSAccessKeyId=532482dfdc85e5d60592&x-amz-limitrate=10240&x-amz-UID=733920062&x-amz-APPID=828221&response-content-disposition=attachment%3Bfilename%3D%22miuipro_v10.0_lavender_20.12.10.zip%22&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-CLOUDTYPEIN=PERSON&Signature=TEUyGS5KKiSUftsrTJfSOCobiIo%3D&x-amz-SHID=170855716&Expires=1609249311&x-amz-FSIZE=2099761155&x-amz-UFID=31549212282566330
-  ROM_NAME: MIUI
+  ROM_URL1: https://coloroswebsitefs.coloros.com/coloroswebsite-coloros-com/grs_20210116104219/PDKM00_11_OTA_0210_all_x6Y2QVoyMrXV.ozip
+  ROM_NAME: ColorOS
   TZ: Asia/Shanghai
 
 jobs:
@@ -45,10 +45,10 @@ jobs:
        
        - name: Download Stock Rom & Generate GSI
          run: |
-           sudo ./ErfanGSIs/url2GSI.sh --ab $ROM_URL1 $ROM_NAME
+           sudo ./ErfanGSIs/url2GSI.sh -ab $ROM_URL1 $ROM_NAME
            ls /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
            7z a -r gsi.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*-AB-*-ErfanGSI.img
            sudo ./transfer wet gsi.7z
            sudo rm gsi.7z
-           7z a -r gsi-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*-Aonly-*-ErfanGSI.img
-           sudo ./transfer wet gsi-aonly.7z
+           7z a -r gsi-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*-ab-*-ErfanGSI.img
+           sudo ./transfer wet gsi-ab.7z
