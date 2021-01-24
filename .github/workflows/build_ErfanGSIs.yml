@@ -49,6 +49,3 @@ jobs:
            ls /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/
            7z a -r gsi.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*-AB-*-ErfanGSI.img
            sudo ./transfer wet gsi.7z
-           sudo rm gsi.7z
-           7z a -r gsi-aonly.7z /home/runner/work/actions_build_ErfanGSIs/actions_build_ErfanGSIs/ErfanGSIs/output/*-ab-*-ErfanGSI.img
-           sudo ./transfer wet gsi-ab.7z
